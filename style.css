@@ -1,0 +1,58 @@
+/* netflix_clone.css - external stylesheet for the Netflix demo clone */
+/* Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: #141414; color: #fff; }
+
+/* Header */
+header{ display:flex; align-items:center; justify-content:space-between; padding:18px 32px; position:fixed; inset:0 0 auto 0; z-index:20; background:linear-gradient(180deg, rgba(20,20,20,0.75), rgba(20,20,20,0.1)); }
+.logo{ font-weight:800; letter-spacing:2px; font-size:22px; color:#E50914; }
+.nav-right{ display:flex; gap:12px; align-items:center; }
+.search{ background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.06); padding:8px 12px; border-radius:6px; color:#ddd; }
+.search::placeholder{ color: #bfbfbf; opacity: 0.9; }
+.profile{ width:36px; height:36px; border-radius:6px; background:linear-gradient(135deg,#666,#333); display:flex; align-items:center; justify-content:center; font-weight:700; }
+
+/* Hero */
+.hero{ padding-top:92px; padding-left:32px; padding-right:32px; margin-bottom:28px; }
+.hero-card{ display:flex; gap:28px; align-items:flex-end; background:linear-gradient(90deg, rgba(0,0,0,0.45), rgba(0,0,0,0.0)); padding:40px; border-radius:12px; min-height:340px; background-image: linear-gradient(180deg, rgba(0,0,0,0.45), transparent), url('https://picsum.photos/1200/400?blur=2'); background-size:cover; background-position:center; }
+.hero-info{ max-width:700px; }
+.title{ font-size:44px; font-weight:800; margin-bottom:10px; }
+.desc{ color:#ddd; opacity:0.9; margin-bottom:18px; line-height:1.4; }
+.cta{ display:flex; gap:12px; }
+.btn{ background:#fff; color:#000; padding:10px 16px; border-radius:6px; font-weight:700; cursor:pointer; border:none; }
+.btn.secondary{ background:rgba(109,109,110,0.7); color:#fff; }
+.btn:focus{ outline:2px solid rgba(255,255,255,0.12); outline-offset:2px; }
+
+/* Rows */
+.row{ margin-top:28px; }
+.row h3{ margin:8px 0 12px 0; font-size:20px; }
+.cards{ display:grid; grid-auto-flow:column; grid-auto-columns:calc(180px); gap:12px; overflow:auto; padding-bottom:12px; }
+.card{ min-width:180px; height:270px; border-radius:8px; position:relative; background:#222; overflow:hidden; cursor:pointer; transform:translateZ(0); transition:transform .18s ease, box-shadow .18s ease; }
+.card img{ width:100%; height:100%; object-fit:cover; display:block; }
+.card:hover{ transform:scale(1.09) translateY(-6px); box-shadow: 0 18px 40px rgba(0,0,0,0.6); z-index:5; }
+.card:focus{ transform:scale(1.06) translateY(-4px); box-shadow:0 12px 28px rgba(0,0,0,0.5); z-index:6; }
+.card .meta{ position:absolute; bottom:8px; left:8px; right:8px; font-size:13px; color:#fff; text-shadow: 0 2px 6px rgba(0,0,0,0.6); }
+
+/* Layout */
+main{ padding:28px 32px 48px; }
+
+/* Modal */
+.modal{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,0.7); z-index:60; }
+.modal.open{ display:flex; }
+.modal-card{ width:min(980px,92%); background:#0f0f0f; border-radius:10px; overflow:hidden; }
+.modal-card header{ padding:12px; display:flex; justify-content:flex-end; }
+.modal-card .content{ padding:18px; }
+
+/* Responsive */
+@media (max-width:800px){ .hero-card{ flex-direction:column; align-items:flex-start; padding:18px; min-height:220px; } .title{ font-size:28px; } .cards{ grid-auto-columns:140px; } .card{ height:210px; } }
+
+/* scrollbar small */
+.cards::-webkit-scrollbar{ height:8px; }
+.cards::-webkit-scrollbar-thumb{ background:rgba(255,255,255,0.08); border-radius:6px; }
+
+/* Utility helpers */
+.hidden{ display:none !important; }
+.center{ display:flex; align-items:center; justify-content:center; }
+
+/* Accessibility tweaks */
+[role="dialog"] { color: #fff; }
+button{ font: inherit; }
